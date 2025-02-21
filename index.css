@@ -35,14 +35,12 @@ body, html {
     position: relative;
     z-index: 0;
     color: white;
-    text-align: center;
-    padding-top: 20vh;
+    margin-top:15%;
+    padding: 20px;
 }
 .content p{
     color: grey;
     font-size: 15px;
-}
-.hero-texts {
     text-align: justify;
 }
 
@@ -52,28 +50,34 @@ body, html {
     z-index: 1;
 }
 
+
 .typing-container {
-    font-size: 2rem;
-    color: whitesmoke;
-    font-weight: bolder;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid whitesmoke; /* Blinking cursor */
-    width: fit-content;
-    margin: 0 auto;
-    animation: typing 5s steps(30, end) infinite, blink 5s step-end infinite;
+  
+}
+
+.typing-text {
+  font-weight: bolder;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid white; /* Typing cursor */
+  width: 0;
+  animation: typing 3s steps(12, end) infinite, blink 0.7s step-end infinite;
 }
 
 @keyframes typing {
-    0% { width: 0; }
-    50% { width: 100%; }
-    100% { width: 0; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 12ch; /* Matches the number of characters */
+  }
 }
 
 @keyframes blink {
-    from, to { border-color: transparent; }
-    50% { border-color: whitesmoke; }
+  50% {
+    border-color: transparent;
+  }
 }
 #particle-canvas {
   position: fixed;
@@ -87,52 +91,59 @@ body, html {
 }
 
 
-.order-section {
-  text-align: center;
-  padding: 50px 20px;
-  background-color:black ;
+.customize-now-modal__content {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem;
+  border-radius: 20px;
 }
 
-form {
+.customize-now-modal__form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  margin: 0 auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
 }
 
-label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-input, select {
-  padding: 8px;
-  margin: 5px 0 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.message {
-  height: 100px;
-}
-
-button {
-  background: #ff4d6d;
-  color: white;
+.customize-now-modal__input,
+.customize-now-modal__textarea {
+  width: 100%;
   padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+}
+
+.customize-now-modal__input[multiple] {
+  height: auto;
+}
+
+.customize-now-modal__button {
+  background-color: #e63946;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1rem;
+  border-radius: 30px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-
-.limited-slots {
-  font-weight: bold;
-  color: red;
-  margin-top: 15px;
+.customize-now-modal__button:hover {
+  background-color: #d62839;
 }
 
-  
+@media (max-width: 480px) {
+  .customize-now-modal__input,
+  .customize-now-modal__textarea {
+    font-size: 0.9rem;
+  }
+}
+
 
   .about-section {
     background-color: #111; /* Darker shade for contrast */
@@ -360,15 +371,22 @@ button:hover {
   background-color: #d62839;
 }
 
+.social-links {
+  padding: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
 .social-links a {
   color: #fff;
-  margin-right: 1rem;
+  padding: 10px;
+  background-color:  #DC3545;
+  border-radius: 20px;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #e63946;
+  color:rgb(213, 82, 93);
 }
 
 
@@ -490,27 +508,3 @@ button:hover {
 }
 
 
-
-.poll-btn {
-  width: 100%;
-  height: auto;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: #e63946;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.poll-btn:hover {
-  background-color: #d62839;
-}
-
-@media (max-width: 480px) {
-  .poll-options {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}

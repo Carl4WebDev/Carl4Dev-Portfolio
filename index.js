@@ -76,20 +76,31 @@ window.addEventListener('resize', () => {
 init();
 
 
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
 
-    let fbPageId = "61571030908344"; // Replace with your actual Facebook Page ID
-    let flavor = document.getElementById("flavor").value;
-    let size = document.getElementById("size").value;
-    let message = document.getElementById("message").value;
+document.getElementById("customProjectForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    let text = `Hello! I'd like to order a ${size} ${flavor} cake. Custom message: "${message}".`;
-    
+    let fbPageId = "61571030908344";
+    let projectName = document.getElementById("projectName").value;
+    let websiteType = document.getElementById("websiteType").value;
+    let designStyle = document.getElementById("designStyle").value;
+    let preferredColor = document.getElementById("preferredColor").value;
+    let pageCount = document.getElementById("pageCount").value;
+    let selectedFunctionalities = Array.from(document.getElementById("functionality").selectedOptions).map(option => option.value).join(", ");
+    let projectDetails = document.getElementById("projectDetails").value;
+    let clientName = document.getElementById("clientName").value.trim();
+    let clientEmail = document.getElementById("clientEmail").value.trim();
+
+    let text = `Hello! I'd like to discuss a ${websiteType} website named \"${projectName}\" with a ${designStyle} style, ${preferredColor} color scheme, ${pageCount} page(s), and functionalities including ${selectedFunctionalities}. Additional details: \"${projectDetails}\".`;
+
+    if (clientName) text += ` My name is ${clientName}.`;
+    if (clientEmail) text += ` You can reach me at ${clientEmail}.`;
+
     let messengerUrl = `https://m.me/${fbPageId}?text=${encodeURIComponent(text)}`;
+    window.location.href = messengerUrl;
+  });
 
-    window.location.href = messengerUrl; // Redirect user to Messenger
-});
+
 
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -102,6 +113,23 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     }).then(response => {
         if (response.ok) {
             document.getElementById("success-message").style.display = "block";
+            form.reset();
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+    }).catch(error => alert("Error: " + error));
+});
+document.getElementById("survey-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var form = event.target;
+    
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById("success-message-survey").style.display = "block";
             form.reset();
         } else {
             alert("Something went wrong. Please try again.");
@@ -133,32 +161,28 @@ window.addEventListener('click', (e) => {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".poll-btn");
-    const resultsDiv = document.querySelector(".poll-results");
 
-    // Load existing counts from localStorage
-    const counts = {
-      love: parseInt(localStorage.getItem("poll-love")) || 0,
-      good: parseInt(localStorage.getItem("poll-good")) || 0,
-      work: parseInt(localStorage.getItem("poll-work")) || 0,
-    };
 
-    const updateResults = () => {
-      document.getElementById("love-count").textContent = counts.love;
-      document.getElementById("good-count").textContent = counts.good;
-      document.getElementById("work-count").textContent = counts.work;
-      resultsDiv.style.display = "block";
-    };
 
-    updateResults();
+const text = "Hi! I'm Carl";
+const typingText = document.getElementById("typing-text");
+let index = 0;
+let isDeleting = false;
 
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const option = btn.getAttribute("data-option");
-        counts[option]++;
-        localStorage.setItem(`poll-${option}`, counts[option]);
-        updateResults();
-      });
-    });
-  });
+function type() {
+  typingText.textContent = text.substring(0, index);
+
+  if (!isDeleting && index < text.length) {
+    index++;
+    setTimeout(type, 150); // Typing speed
+  } else if (isDeleting && index > 0) {
+    index--;
+    setTimeout(type, 100); // Deleting speed
+  } else {
+    isDeleting = !isDeleting;
+    setTimeout(type, 1000); // Pause before retyping
+    type();
+  }
+}
+
+window.onload = type; // Ensure it runs after page load
