@@ -112,23 +112,53 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 
 
 
+// other projects modal
+const openModalBtn = document.getElementById('openOtherProjects');
+const modal = document.getElementById('otherProjectsModal');
+const closeModal = document.querySelector('.other-projects-close');
 
-// Modal functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('projectModal');
-    const openBtn = document.getElementById('openModal');
-    const closeBtn = document.getElementById('closeModal');
-  
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('show');
-    });
-  
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('show');
-    });
-  
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('show');
+// Open Modal
+openModalBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+// Close Modal
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Close on Outside Click
+window.addEventListener('click', (e) => {
+  if (e.target === modal) modal.style.display = 'none';
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".poll-btn");
+    const resultsDiv = document.querySelector(".poll-results");
+
+    // Load existing counts from localStorage
+    const counts = {
+      love: parseInt(localStorage.getItem("poll-love")) || 0,
+      good: parseInt(localStorage.getItem("poll-good")) || 0,
+      work: parseInt(localStorage.getItem("poll-work")) || 0,
+    };
+
+    const updateResults = () => {
+      document.getElementById("love-count").textContent = counts.love;
+      document.getElementById("good-count").textContent = counts.good;
+      document.getElementById("work-count").textContent = counts.work;
+      resultsDiv.style.display = "block";
+    };
+
+    updateResults();
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const option = btn.getAttribute("data-option");
+        counts[option]++;
+        localStorage.setItem(`poll-${option}`, counts[option]);
+        updateResults();
+      });
     });
   });
-  

@@ -53,7 +53,7 @@ body, html {
 }
 
 .typing-container {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: whitesmoke;
     font-weight: bolder;
     text-align: center;
@@ -87,50 +87,51 @@ body, html {
 }
 
 
-.contact-section {
-    text-align: center;
-    padding: 30px 15px;
-    background-color:black ;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  label {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  input, select {
-    padding: 8px;
-    margin: 5px 0 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+.order-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color:black ;
+}
 
-  .message {
-    height: 100px;
-  }
-  
-  button {
-    background: #ff4d6d;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
-  .limited-slots {
-    font-weight: bold;
-    color: red;
-    margin-top: 15px;
-  }
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, select {
+  padding: 8px;
+  margin: 5px 0 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.message {
+  height: 100px;
+}
+
+button {
+  background: #ff4d6d;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.limited-slots {
+  font-weight: bold;
+  color: red;
+  margin-top: 15px;
+}
+
   
 
   .about-section {
@@ -373,87 +374,143 @@ button:hover {
 
 
 
-
-/* Modal Overlay */
-.modal-overlay {
+/* other projects modal */
+.other-projects-modal {
+  display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  display: none; /* Changed from visibility/opacity to display for simplicity */
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
-.modal-overlay.show {
-  display: flex;
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #222;
+.other-projects-modal-content {
+  background-color: #1e1e1e;
   padding: 2rem;
+  border-radius: 20px;
   width: 90%;
   max-width: 800px;
-  border-radius: 1rem;
-  position: relative;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  overflow-y: auto;
-  max-height: 80vh;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 0.4s ease;
 }
 
-.close-btn {
+.other-projects-close {
   position: absolute;
-  top: 1rem; right: 1rem;
+  top: 20px;
+  right: 30px;
   font-size: 2rem;
+  color: #fff;
   cursor: pointer;
-  color: #e63946;
 }
 
-.project-grid {
+.other-projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .project-card {
-  background-color: #333;
+  background-color: #2a2a2a;
   padding: 1.5rem;
-  border-radius: 0.75rem;
-  text-align: center;
-  transition: transform 0.3s ease;
+  border-radius: 15px;
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .project-card a {
   display: inline-block;
-  margin-top: 1rem;
-  color: #e63946;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  background-color: #e63946;
+  transition: background-color 0.3s;
 }
 
 .project-card a:hover {
-  color: #f76c6c;
-}
-
-/* Button */
-.btn-view-more {
-  padding: 0.8rem 2rem;
-  background-color: #e63946;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-view-more:hover {
   background-color: #d62839;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .other-projects-modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .other-projects-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-card a {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-projects-close {
+    font-size: 1.5rem;
+    top: 15px;
+    right: 20px;
+  }
+
+  .other-projects-modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+
+
+.poll-btn {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #e63946;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.poll-btn:hover {
+  background-color: #d62839;
+}
+
+@media (max-width: 480px) {
+  .poll-options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
