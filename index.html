@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carl4Dev</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="icon" href="assets/images/logo-tempo.jpg" />
-    <style>
-  </style>
+    <style></style>
   </head>
   <canvas id="particle-canvas"> </canvas>
-<body>
+  <body>
+    <link rel="stylesheet" href="index.css" />
 
-    <link rel="stylesheet"  href="index.css"/>
-
-        <!-- Customize Now Modal: Enhanced Inputs with Unique CSS and Messenger Submission -->
-    <div class="modal fade" id="customizeNowModal" tabindex="-1" aria-labelledby="customizeNowModalLabel" aria-hidden="true">
+    <!-- Customize Now Modal: Enhanced Inputs with Unique CSS and Messenger Submission -->
+    <div
+      class="modal fade"
+      id="customizeNowModal"
+      tabindex="-1"
+      aria-labelledby="customizeNowModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content customize-now-modal__content">
           <div class="modal-header">
-            <h5 class="modal-title" id="customizeNowModalLabel">🛠️ Design Your Dream Website</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="customizeNowModalLabel">
+              🛠️ Design Your Dream Website
+            </h5>
+            <button
+              type="button"
+              class="btn-close bg-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
-            <p class="customize-now-modal__limited-slots text-danger">📢 I only take a limited number of custom projects per week. Book now before slots fill up!</p>
+            <p class="customize-now-modal__limited-slots text-danger">
+              📢 I only take a limited number of custom projects per week. Book
+              now before slots fill up!
+            </p>
             <form id="customProjectForm" class="customize-now-modal__form">
-              <input type="text" class="customize-now-modal__input" id="projectName" placeholder="Project Name" required>
+              <input
+                type="text"
+                class="customize-now-modal__input"
+                id="projectName"
+                placeholder="Project Name"
+                required
+              />
 
-              <select class="customize-now-modal__input" id="websiteType" required>
+              <select
+                class="customize-now-modal__input"
+                id="websiteType"
+                required
+              >
                 <option value="" disabled selected>Select Website Type</option>
                 <option value="Portfolio">Portfolio</option>
                 <option value="E-commerce">E-commerce</option>
@@ -36,7 +65,11 @@
                 <option value="Business Website">Business Website</option>
               </select>
 
-              <select class="customize-now-modal__input" id="designStyle" required>
+              <select
+                class="customize-now-modal__input"
+                id="designStyle"
+                required
+              >
                 <option value="" disabled selected>Select Design Style</option>
                 <option value="Minimalistic">Minimalistic</option>
                 <option value="Modern">Modern</option>
@@ -45,10 +78,28 @@
                 <option value="Colorful">Colorful</option>
               </select>
 
-              <input type="text" class="customize-now-modal__input" id="preferredColor" placeholder="Preferred Color Scheme" required>
-              <input type="number" class="customize-now-modal__input" id="pageCount" placeholder="Number of Pages" min="1" required>
+              <input
+                type="text"
+                class="customize-now-modal__input"
+                id="preferredColor"
+                placeholder="Preferred Color Scheme"
+                required
+              />
+              <input
+                type="number"
+                class="customize-now-modal__input"
+                id="pageCount"
+                placeholder="Number of Pages"
+                min="1"
+                required
+              />
 
-              <select class="customize-now-modal__input" id="functionality" multiple required>
+              <select
+                class="customize-now-modal__input"
+                id="functionality"
+                multiple
+                required
+              >
                 <option value="Contact Form">Contact Form</option>
                 <option value="Image Gallery">Image Gallery</option>
                 <option value="Product Listing">Product Listing</option>
@@ -56,219 +107,503 @@
                 <option value="User Login">User Login (Frontend Only)</option>
               </select>
 
-              <textarea class="customize-now-modal__textarea" id="projectDetails" rows="3" placeholder="Describe your website idea in detail..." required></textarea>
-              <input type="text" class="customize-now-modal__input" id="clientName" placeholder="Your Name (Optional)">
-              <input type="email" class="customize-now-modal__input" id="clientEmail" placeholder="Your Email (Optional)">
-              <button type="submit" class="customize-now-modal__button">Submit Your Idea via Messenger</button>
+              <textarea
+                class="customize-now-modal__textarea"
+                id="projectDetails"
+                rows="3"
+                placeholder="Describe your website idea in detail..."
+                required
+              ></textarea>
+              <input
+                type="text"
+                class="customize-now-modal__input"
+                id="clientName"
+                placeholder="Your Name (Optional)"
+              />
+              <input
+                type="email"
+                class="customize-now-modal__input"
+                id="clientEmail"
+                placeholder="Your Email (Optional)"
+              />
+              <button type="submit" class="customize-now-modal__button">
+                Submit Your Idea via Messenger
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
     <header>
-      <nav class="navbar navbar-expand-lg ">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand text-white fw-bolder fs-2" href="#home">Carl4Dev</a>
-          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"  aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="#about-me">About Me</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="#tech-stack">Tech Stack</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="#projects">Projects</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="#contact-me">Contact Me</a>
-                  </li>
-                </ul>
+          <a class="navbar-brand text-white fw-bolder fs-2" href="#home"
+            >Carl4Dev</a
+          >
+          <button
+            class="navbar-toggler bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul
+              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+              style="--bs-scroll-height: 100px"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white fw-bold"
+                  aria-current="page"
+                  href="#about-me"
+                  >About Me</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white fw-bold"
+                  aria-current="page"
+                  href="#tech-stack"
+                  >Tech Stack</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white fw-bold"
+                  aria-current="page"
+                  href="#projects"
+                  >Projects</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white fw-bold"
+                  aria-current="page"
+                  href="#contact-me"
+                  >Contact Me</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div
+      id="home"
+      class="row mt-5 p-3 h-100 d-flex justify-content-center align-content-center"
+    >
+      <div class="col-12 col-md-6 content">
+        <h1>Looking for a <span class="hero-main-text">DEVELOPER</span>?</h1>
+        <div class="typing-container">
+          <h1 class="typing-text">Hi! I'm Carl.</h1>
+        </div>
+        <p>
+          Specializing in interactive, responsive designs with clean,
+          maintainable code. I transform ideas into sleek, functional web and
+          desktop application with precision and style.
+        </p>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-danger fw-bolder fs-2"
+          data-bs-toggle="modal"
+          data-bs-target="#customizeNowModal"
+        >
+          Customize Now
+        </button>
+      </div>
+      <div
+        class="col-12 col-md-6 d-flex justify-content-center align-content-center"
+      >
+        <img
+          src="assets/images/download-removebg-preview.png"
+          class="hero-img rounded-circle"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div id="about-me" class="row">
+      <div class="col-12">
+        <section id="about" class="about-section p-5">
+          <h2 class="fw-bolder">About Me</h2>
+          <p>
+            Hey there! I'm <strong>Carl Ivan Sampan</strong>, a passionate
+            developer dedicated to transforming ideas into sleek, functional web
+            and desktop application. I specialize in crafting responsive and
+            interactive user interfaces using HTML, CSS, JavaScript, and
+            React.js for website and c# for desktop application, all wrapped in
+            a clean, dark aesthetic.
+          </p>
+          <p>
+            My approach focuses on simplicity, performance, and engaging user
+            experiences. Whether it's a personal project or a professional
+            solution, I take pride in writing clean code and designing intuitive
+            web and desktop applications. Let's create something amazing
+            together!
+          </p>
+        </section>
+      </div>
+    </div>
+    <div id="tech-stack" class="row mt-5">
+      <div class="col-12">
+        <section id="tech-stack" class="p-5">
+          <h2 class="text-center mb-4">Tech Stack</h2>
+          <p class="text-center mb-5">
+            Tools and technologies I use to build sleek, functional web and
+            desktop application.
+          </p>
+          <h3 class="stack-category mt-4 mb-3">My everyday use (fullstack)</h3>
+          <div class="stack-container">
+            <div class="stack-item">
+              <img src="assets/images/tailwind.png" alt="Tailwind" />
+              <h4>Tailwind CSS</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/react-3-removebg-preview.png"
+                alt="React"
+              />
+              <h4>React.js</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/node-removebg-preview.png"
+                alt="Node.js"
+              />
+              <h4>Node.js</h4>
+            </div>
+            <div class="stack-item">
+              <img src="assets/images/postpre.png" alt="PostgreSQL" />
+              <h4>PostgreSQL</h4>
+            </div>
+          </div>
+
+          <!-- Frontend Technologies -->
+          <h3 class="stack-category mt-4">Frontend</h3>
+          <div class="stack-container">
+            <div class="stack-item">
+              <img
+                src="assets/images/html-removebg-preview (1).png"
+                alt="HTML5"
+              />
+              <h4>HTML5</h4>
+            </div>
+            <div class="stack-item">
+              <img src="assets/images/css1-removebg-preview.png" alt="CSS3" />
+              <h4>CSS3</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/Boostrap_logo_01-removebg-preview.png"
+                alt="Bootstrap"
+              />
+              <h4>Bootstrap 5</h4>
+            </div>
+            <div class="stack-item">
+              <img src="assets/images/tailwind.png" alt="Tailwind" />
+              <h4>Tailwind CSS</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/js-removebg-preview.png"
+                alt="JavaScript"
+              />
+              <h4>JavaScript</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/react-3-removebg-preview.png"
+                alt="React"
+              />
+              <h4>React.js</h4>
+            </div>
+          </div>
+
+          <!-- Backend Technologies -->
+          <h3 class="stack-category mb-3">Backend</h3>
+          <div class="stack-container">
+            <div class="stack-item">
+              <img src="assets/images/c_-removebg-preview (1).png" alt="C#" />
+              <h4>C#</h4>
+            </div>
+            <div class="stack-item">
+              <img
+                src="assets/images/node-removebg-preview.png"
+                alt="Node.js"
+              />
+              <h4>Node.js</h4>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <h3 class="stack-category mt-5 mb-3">Database</h3>
+          <div class="stack-container">
+            <div class="stack-item">
+              <img
+                src="assets/images/mysqlworkbench-icon-2048x2026-telcey9g-removebg-preview.png"
+                alt="MySQL"
+              />
+              <h4>MySQL Workbench</h4>
+            </div>
+            <div class="stack-item">
+              <img src="assets/images/postpre.png" alt="PostgreSQL" />
+              <h4>PostgreSQL</h4>
+            </div>
+            <div class="stack-item">
+              <img src="assets/images/firebase.png" alt="Firebase" />
+              <h4>Firebase</h4>
+            </div>
+          </div>
+
+          <!-- Version Control -->
+          <h3 class="stack-category mt-5 mb-3">Version Control</h3>
+          <div class="stack-container">
+            <div class="stack-item">
+              <img
+                src="assets/images/github-removebg-preview (1).png"
+                class="bg-white rounded-circle"
+                alt="GitHub"
+              />
+              <h4>Github</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div id="projects" class="row mt-5">
+      <div class="col-12">
+        <section id="projects" class="p-5">
+          <h2 class="text-center mb-4">Projects</h2>
+          <p class="text-center mb-5">
+            Showcasing some of my best work—crafted with precision, performance,
+            and style.
+          </p>
+          <div class="projects-container">
+            <div class="project-card">
+              <img
+                src="assets/images/react1.jpg"
+                alt="Project 1 Screenshot"
+                class="project-img"
+              />
+              <div class="project-info">
+                <h3>Electronic Books E-commerce Website</h3>
+                <p>
+                  An e-commerce website showcasing a variety of products for
+                  easy browsing and online shopping.
+                </p>
+                <div class="btn-group">
+                  <a
+                    href="https://carl4dev-ecommerce-web.netlify.app/"
+                    class="project-btn live"
+                    target="_blank"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Carl4WebDev/eCommerce-web?tab=readme-ov-file"
+                    class="project-btn source"
+                    target="_blank"
+                    >Source Code</a
+                  >
+                </div>
               </div>
             </div>
-        </nav>
-    </header>
-    <div id="home" class="row mt-5 p-3 h-100 d-flex justify-content-center align-content-center ">
-        <div class="col-12 col-md-6 content ">
-            <h1>Looking for a <span class="hero-main-text">DEVELOPER</span>?</h1>
-            <div class="typing-container">
-              <h1 class="typing-text">Hi! I'm Carl.</h1>
-            </div>
-            <p>
-                Specializing in interactive, responsive designs with clean, maintainable code.
-                I transform ideas into sleek, functional web and desktop application with precision and style.
-            </p>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger fw-bolder fs-2" data-bs-toggle="modal" data-bs-target="#customizeNowModal">
-              Customize Now
-            </button>
-        </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center align-content-center">
-          <img src="assets/images/download-removebg-preview.png" class="hero-img  rounded-circle" alt="">
-        </div>
-    </div>
 
-    <div id="about-me"  class="row">
-        <div class="col-12">
-            <section id="about" class="about-section p-5">
-                <h2 class="fw-bolder">About Me</h2>
+            <div class="project-card">
+              <img
+                src="assets/images/cakeproject.jpg"
+                alt="Project 2 Screenshot"
+                class="project-img"
+              />
+              <div class="project-info">
+                <h3>Cake Shop</h3>
                 <p>
-                    Hey there! I'm <strong>Carl Ivan Sampan</strong>, a passionate developer dedicated to transforming ideas into sleek, functional web and desktop application. 
-                    I specialize in crafting responsive and interactive user interfaces using HTML, CSS, JavaScript, and React.js for website and c# for desktop application, all wrapped in a clean, dark aesthetic.  
+                  A clean and modern landing page for Cake Shops, showcasing
+                  Cake Shops best cakes and their best offers with an inviting
+                  user interface.
                 </p>
+                <div class="btn-group">
+                  <a
+                    href="https://cake-shop-template-carl4dev.netlify.app/"
+                    class="project-btn live"
+                    target="_blank"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Carl4WebDev/Nestor-s-Pantry"
+                    class="project-btn source"
+                    target="_blank"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img
+                src="assets/images/cinemate.jpg"
+                alt="Project 3 Screenshot"
+                class="project-img"
+              />
+              <div class="project-info">
+                <h3>CineNext</h3>
                 <p>
-                    My approach focuses on simplicity, performance, and engaging user experiences. Whether it's a personal project or a professional solution, I take pride 
-                    in writing clean code and designing intuitive web and desktop applications. Let's create something amazing together!
+                  A website featuring a collection of upcoming movies with
+                  details for movie enthusiasts.
                 </p>
-            </section>
-            
-        </div>
-
-    </div>
-    <div id="tech-stack"  class="row mt-5" >
-        <div class="col-12">
-          <section id="tech-stack" class="p-5">
-            <h2 class="text-center mb-4">Tech Stack</h2>
-            <p class="text-center mb-5">Tools and technologies I use to build sleek, functional web and desktop application.</p>
-            <div class="stack-container">
-                <div class="stack-item">
-                    <img src="assets/images/github-removebg-preview (1).png" class="bg-white rounded-circle" alt="HTML5">
-                    <h4>Github</h4>
+                <div class="btn-group">
+                  <a
+                    href="https://carl4webdev.netlify.app/"
+                    class="project-btn live"
+                    target="_blank"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://carl4webdev.netlify.app"
+                    class="project-btn source"
+                    target="_blank"
+                    >Source Code</a
+                  >
                 </div>
-                <div class="stack-item">
-                    <img src="assets/images/html-removebg-preview (1).png" alt="HTML5">
-                    <h4>HTML5</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/css1-removebg-preview.png" alt="CSS3">
-                    <h4>CSS3</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/Boostrap_logo_01-removebg-preview.png" alt="CSS3">
-                    <h4>Bootstrap 5</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/js-removebg-preview.png" alt="JavaScript">
-                    <h4>JavaScript</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/react-3-removebg-preview.png" alt="React">
-                    <h4>React.js</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/c_-removebg-preview (1).png" alt="JavaScript">
-                    <h4>C#</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/node-removebg-preview.png" alt="Node.js">
-                    <h4>Node.js</h4>
-                </div>
-                <div class="stack-item">
-                    <img src="assets/images/mysqlworkbench-icon-2048x2026-telcey9g-removebg-preview.png" alt="MySQL">
-                    <h4>MySQL Workbench</h4>
-                </div>
+              </div>
             </div>
-        </section>
-            
-        </div>
-
-    </div>
-    <div id="projects"  class="row mt-5" >
-        <div class="col-12">
-          <section id="projects" class="p-5">
-            <h2 class="text-center mb-4">Projects</h2>
-            <p class="text-center mb-5">Showcasing some of my best work—crafted with precision, performance, and style.</p>
-            <div class="projects-container">
-                <div class="project-card">
-                    <img src="assets/images/react1.jpg" alt="Project 1 Screenshot" class="project-img">
-                    <div class="project-info">
-                        <h3>Electronic Books E-commerce Website</h3>
-                        <p>An e-commerce website showcasing a variety of products for easy browsing and online shopping.</p>
-                        <div class="btn-group">
-                            <a href="https://carl4dev-ecommerce-web.netlify.app/" class="project-btn live" target="_blank">Live Demo</a>
-                            <a href="https://github.com/Carl4WebDev/eCommerce-web?tab=readme-ov-file" class="project-btn source" target="_blank">Source Code</a>
-                        </div>
-                    </div>
+            <div class="project-card">
+              <img
+                src="assets/images/gwa-calcu.jpg"
+                alt="Project 3 Screenshot"
+                class="project-img"
+              />
+              <div class="project-info">
+                <h3>GWA calculator</h3>
+                <p>
+                  A simple and intuitive GWA calculator designed to help
+                  students compute their General Weighted Average quickly and
+                  accurately. (STI grading system)
+                </p>
+                <div class="btn-group">
+                  <a
+                    href="https://carl4dev-gwa-calculator.netlify.app/"
+                    class="project-btn live"
+                    target="_blank"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Carl4WebDev/gwa-calculator-js_ver"
+                    class="project-btn source"
+                    target="_blank"
+                    >Source Code</a
+                  >
                 </div>
-        
-                <div class="project-card">
-                    <img src="assets/images/cakeproject.jpg" alt="Project 2 Screenshot" class="project-img">
-                    <div class="project-info">
-                        <h3>Cake Shop</h3>
-                        <p>A clean and modern landing page for Cake Shops, showcasing Cake Shops best cakes and their best offers with an inviting user interface.</p>
-                        <div class="btn-group">
-                            <a href="https://cake-shop-template-carl4dev.netlify.app/" class="project-btn live" target="_blank">Live Demo</a>
-                            <a href="https://github.com/Carl4WebDev/Nestor-s-Pantry" class="project-btn source" target="_blank">Source Code</a>
-                        </div>
-                      </div>
-                </div>
-        
-                <div class="project-card">
-                    <img src="assets/images/cinemate.jpg" alt="Project 3 Screenshot" class="project-img">
-                    <div class="project-info">
-                        <h3>CineNext</h3>
-                        <p>A website featuring a collection of upcoming movies with details for movie enthusiasts.</p>
-                        <div class="btn-group">
-                            <a href="https://carl4webdev.netlify.app/" class="project-btn live" target="_blank">Live Demo</a>
-                            <a href="https://carl4webdev.netlify.app" class="project-btn source" target="_blank">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="assets/images/gwa-calcu.jpg" alt="Project 3 Screenshot" class="project-img">
-                    <div class="project-info">
-                        <h3>GWA calculator</h3>
-                        <p>A simple and intuitive GWA calculator designed to help students compute their General Weighted Average quickly and accurately. (STI grading system)</p>
-                        <div class="btn-group">
-                            <a href="https://carl4dev-gwa-calculator.netlify.app/" class="project-btn live" target="_blank">Live Demo</a>
-                            <a href="https://github.com/Carl4WebDev/gwa-calculator-js_ver" class="project-btn source" target="_blank">Source Code</a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </section>
 
         <!-- Trigger Button -->
         <!-- <button id="openOtherProjects">View More Projects</button> -->
-        </div>
+      </div>
     </div>
 
-    <div id="contact-me" class="row d-flex justify-content-center mt-5 p-3" style="background-color: #1e1e1e;" >
+    <div
+      id="contact-me"
+      class="row d-flex justify-content-center mt-5 p-3"
+      style="background-color: #1e1e1e"
+    >
       <div class="col-12 col-md-6 p-3">
         <h2 class="text-center fw-bolder text-white">Contact Me</h2>
-        <p class="text-center text-white-50">Have questions? We're here to help!</p>
-          <form id="contact-form" action="https://formspree.io/f/xdkabwoz" method="POST">
-            <input type="text" name="name" placeholder="Your Name" style="color: whitesmoke; " required>
-            <input type="email" name="email" placeholder="Your Email" style="color: whitesmoke;" required>
-            <textarea name="message" placeholder="Your Message" style="color: whitesmoke;" required></textarea>
-            <button type="submit" class="contact-me-btn">Send Message</button>
-          </form>
-          <p id="success-message" style="display: none; color: green;" class="text-center">Message sent successfully!</p>
-          
-          <div class="social-links text-center">
-            <a href="https://github.com/Carl4WebDev" target="_blank">GitHub</a>
+        <p class="text-center text-white-50">
+          Have questions? We're here to help!
+        </p>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xdkabwoz"
+          method="POST"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            style="color: whitesmoke"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            style="color: whitesmoke"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            style="color: whitesmoke"
+            required
+          ></textarea>
+          <button type="submit" class="contact-me-btn">Send Message</button>
+        </form>
+        <p
+          id="success-message"
+          style="display: none; color: green"
+          class="text-center"
+        >
+          Message sent successfully!
+        </p>
 
-            <a href="https://www.facebook.com/carlcarlcarlivanivansss" target="_blank">Facebook</a>
-          </div>
-          
+        <div class="social-links text-center">
+          <a href="https://github.com/Carl4WebDev" target="_blank">GitHub</a>
+
+          <a
+            href="https://www.facebook.com/carlcarlcarlivanivansss"
+            target="_blank"
+            >Facebook</a
+          >
+        </div>
       </div>
-      <div class="col-12 col-md-6 d-flex align-content-center justify-content-center p-3" >              
-        <section class="client-poll-section" style="text-align:center; padding: 2rem; color:white;">
+      <div
+        class="col-12 col-md-6 d-flex align-content-center justify-content-center p-3"
+      >
+        <section
+          class="client-poll-section"
+          style="text-align: center; padding: 2rem; color: white"
+        >
           <h2>💬 What do you think of my portfolio?</h2>
-          <form id="survey-form" action="https://formspree.io/f/xdkabwoz" method="POST">
-            <input type="text" name="name" placeholder="Your Name" style="color: whitesmoke; " required>
-            <textarea name="message" placeholder="Your Message" style="color: whitesmoke;" required></textarea>
+          <form
+            id="survey-form"
+            action="https://formspree.io/f/xdkabwoz"
+            method="POST"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              style="color: whitesmoke"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              style="color: whitesmoke"
+              required
+            ></textarea>
             <button type="submit" class="contact-me-btn">Send Message</button>
-            <p id="success-message-survey" style="display: none; color: green;" class="text-center">Message sent successfully!</p>
+            <p
+              id="success-message-survey"
+              style="display: none; color: green"
+              class="text-center"
+            >
+              Message sent successfully!
+            </p>
           </form>
         </section>
       </div>
     </div>
 
-        <!-- Other Projects Modal -->
+    <!-- Other Projects Modal -->
     <div id="otherProjectsModal" class="other-projects-modal">
       <div class="other-projects-modal-content">
         <span class="other-projects-close">&times;</span>
@@ -291,14 +626,17 @@
       </div>
     </div>
 
-
-  
-    
     <script src="index.js"></script>
-</body>
+  </body>
 
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-</body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"
+  ></script>
 </html>
