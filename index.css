@@ -51,8 +51,9 @@ body, html {
     width: 60%;
     height: 70%;
     z-index: 1;
+    translate: 50px 100px; /* Moves 50px right and 100px down */
+    
 }
-
 .typing-text {
   font-weight: bolder;
   color: white;

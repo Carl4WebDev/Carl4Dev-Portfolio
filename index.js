@@ -119,6 +119,9 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         }
     }).catch(error => alert("Error: " + error));
 });
+
+
+
 document.getElementById("survey-form").addEventListener("submit", function(event) {
     event.preventDefault();
     var form = event.target;
